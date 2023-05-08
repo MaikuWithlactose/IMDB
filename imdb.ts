@@ -1,5 +1,3 @@
-const { Movie } = require("./Movie.ts");  
-
 class IMDB {
   private List_Movies: typeof Movie[] ;
 
