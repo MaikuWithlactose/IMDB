@@ -1,2 +1,2 @@
 # Omitimos los archivos JS
-.js
+*.jsgit rm
