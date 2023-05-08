@@ -1,4 +1,4 @@
-const { ProfessionalClass } = require("./Professional.js");  
+const { Professional } = require("./Professional.ts");  
 
 class Movie {
   private title: string
