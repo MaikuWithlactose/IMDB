@@ -1,17 +1,17 @@
 const { Movie } = require("./Movie.ts");  
 
 class IMDB {
-  private List_Movies: Movie[] ;
+  private List_Movies: typeof Movie[] ;
 
-  constructor(_movies: Movie[]) {
+  constructor(_movies: typeof Movie[]) {
     this.List_Movies = _movies;
   }
 
-  public get list_Movies(): Movie[] {
+  public get list_Movies(): typeof Movie[] {
     return this.List_Movies;
   }
 
-  public set list_Movies(_movies: Movie[]) {
+  public set list_Movies(_movies: typeof Movie[]) {
     this.List_Movies = _movies;
   }
 
