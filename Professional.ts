@@ -1,4 +1,4 @@
-class Professional {
+export class Professional {
   private Name: string;
   private Age: number;
   private Weight: number;
@@ -19,7 +19,8 @@ class Professional {
     this.Profession = _profession;
   }
 
-  // Getters
+  
+
   public get name(): string {
     return this.Name;
   }
@@ -52,7 +53,11 @@ class Professional {
     return this.Profession;
   }
 
-  // Setters
+
+  
+
+
+
   public set name(_name: string) {
     this.Name = _name;
   }
@@ -85,7 +90,11 @@ class Professional {
     this.Profession = _profession;
   }
 
-  // Método para mostrar las propiedades
+
+  
+
+
+  
   public MostrarProfessional(): void {
     console.log(`Name: ${this.Name}`);
     console.log(`Age: ${this.Age}`);

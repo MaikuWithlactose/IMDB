@@ -1,6 +1,6 @@
-//const { Professional } = require("./Professional.ts");  
+import { Professional } from './Professional';
 
-class Movie {
+export class Movie {
   private title: string
   private releaseYear: number
   private actors: typeof Professional[]
