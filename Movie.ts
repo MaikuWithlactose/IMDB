@@ -3,10 +3,10 @@ import { Professional } from './Professional';
 export class Movie {
   private title: string
   private releaseYear: number
-  private actors: typeof Professional[]
+  private actors: Professional[]
   private nacionality: string
-  private director: typeof Professional
-  private writer: typeof Professional
+  private director:  Professional
+  private writer:  Professional
   private language: string
   private plataforma: string
   private isMCU: boolean
@@ -14,9 +14,11 @@ export class Movie {
   private producer: string
   private distributor: string
   private genre: string
+    static cast: any;
+    static title: any;
 
 
-  constructor(_title: string,_releaseYear: number,_actors: typeof Professional[],_nationality: string,_director: typeof Professional,_writer: typeof Professional,_language: string,_plataforma: string,_isMCU: boolean,_mainCharacterName: string,_producer: string,_distributor: string,_genre: string
+  constructor(_title: string,_releaseYear: number,_actors:  Professional[],_nationality: string,_director:  Professional,_writer:  Professional,_language: string,_plataforma: string,_isMCU: boolean,_mainCharacterName: string,_producer: string,_distributor: string,_genre: string
   ) {
     this.title = _title;
     this.releaseYear = _releaseYear;
@@ -45,7 +47,7 @@ export class Movie {
     this.releaseYear = value;
   }
 
-  public get Actors(): typeof Professional[] {
+  public get Actors():  Professional[] {
     return this.actors;
   }
 
@@ -53,11 +55,11 @@ export class Movie {
     return this.nacionality;
   }
 
-  public get Director(): typeof Professional {
+  public get Director():  Professional {
     return this.director;
   }
 
-  public get Writer(): typeof Professional {
+  public get Writer():  Professional {
     return this.writer;
   }
 
@@ -93,15 +95,15 @@ export class Movie {
     this.title = value;
   }
 
-  public set Actors(value: typeof Professional[]) {
+  public set Actors(value:  Professional[]) {
     this.actors = value;
   }
 
-  public set Director(value: typeof Professional) {
+  public set Director(value:  Professional) {
     this.director = value;
   }
 
-  public set Writer(value: typeof Professional) {
+  public set Writer(value:  Professional) {
     this.writer = value;
   }
 

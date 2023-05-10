@@ -1,19 +1,22 @@
 import { Movie } from './Movie';
 const fs = require("fs");
+const path = require("path");
 
 export class IMDB {
-  public List_Movies: typeof Movie[] ;
-  private String_Json_Movies: string;
 
-  constructor(_movies: typeof Movie[]) {
+  public List_Movies: Movie[] ;
+  private String_Json_Movies: string;
+  private NameFileJson: string = "imdbBBDD.json";
+
+  constructor(_movies: Movie[]) {
     this.List_Movies = _movies;
   }
 
-  public get list_Movies(): typeof Movie[] {
+  public get list_Movies():  Movie[] {
     return this.List_Movies;
   }
 
-  public set list_Movies(_movies: typeof Movie[]) {
+  public set list_Movies(_movies:  Movie[]) {
     this.List_Movies = _movies;
   }
 
@@ -37,26 +40,50 @@ export class IMDB {
       }
 
       //Crea el fichero a partir de la lista de peliculas del string convertido a JSON
-      let nombreFichero = "imdbBBDD.json";
-      fs.writeFileSync(nombreFichero, this.String_Json_Movies)
+      fs.writeFileSync(this.NameFileJson, this.String_Json_Movies)
 
     }
     
   }
 
-  /*public GuardarObjetoJson_Fichero()
+  public LeerObjetoJson_Fichero()
   {
     if(this.List_Movies.length === 0)
     {
       console.log("No hay peliculas")
     }
     else
-    {  
-      let nombreFichero = "imdbBBDD.json";
-      fs.writeFileSync(nombreFichero, JSON.stringify(this.List_Movies))
+    {
+      //Crea el fichero a partir de la lista de peliculas del string convertido a JSON
+      this.List_Movies = JSON.parse(fs.readFileSync(path.resolve(this.NameFileJson)))    
     }
-  }*/
+  }
 
+  public EscribirObjetoJson_Fichero(NombreFichero:string)
+  {
+    if(this.List_Movies.length === 0)
+    {
+      console.log("No hay peliculas")
+    }
+    else
+    {
+      if(this.String_Json_Movies.length === 0 )
+      {
+        this.ConvertirJSON();
+      }
+      fs.writeFileSync(NombreFichero, this.String_Json_Movies)
+    }
+  }
 
-  
+  public ObtenerObjetoJson_Fichero(NombreFichero:string)
+  {
+    if(this.List_Movies.length === 0)
+    {
+      console.log("No hay peliculas")
+    }
+    else
+    {
+      this.List_Movies = JSON.parse(fs.readFileSync(path.resolve(NombreFichero)));
+    }
+  }  
 }
